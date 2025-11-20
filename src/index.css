@@ -2,25 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global body style (optional, matches your design) */
+/* Global body style */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   background-color: #ffffff;
-  color: #0f172a; /* zinc-900-ish */
+  color: #18181b; /* zinc-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* 🔥 Force compact 4-across layout for packages */
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🔥 Force compact 4-across layout for packages on desktop */
 #packages-grid {
   display: grid;
   grid-template-columns: 1fr; /* mobile: one column */
-  gap: 1.25rem; /* ~gap-5 */
+  gap: 1.25rem;
 }
 
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  #packages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: 4 cards across */
 @media (min-width: 1024px) {
-  /* desktop: 4 cards across like the screenshot */
   #packages-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #e11d48; /* rose-600 */
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Better image loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button {
+  transition: all 0.3s ease;
 }
