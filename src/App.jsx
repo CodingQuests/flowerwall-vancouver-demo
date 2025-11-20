@@ -1,30 +1,22 @@
-const HERO =
-  "https://flowerwallvancouver.com/cdn/shop/files/banner_20.jpg?v=1747916929";
+// src/App.jsx
+export default function App() {
+  const GALLERY = [
+    "https://flowerwallvancouver.com/cdn/shop/files/ombre1_800x.jpg?v=1749713745",
+    "https://flowerwallvancouver.com/cdn/shop/files/blue_ombre_800x.png?v=1758314713",
+    "https://flowerwallvancouver.com/cdn/shop/files/white-flower-wall_800x.jpg?v=1750060307",
+    "https://flowerwallvancouver.com/cdn/shop/files/preview-img-big-1_800x.jpg?v=1745233128",
+  ];
 
-const GALLERY = [
-  "https://flowerwallvancouver.com/cdn/shop/files/ombre1_800x.jpg?v=1749713745",
-  "https://flowerwallvancouver.com/cdn/shop/files/blue_ombre_800x.png?v=1758314713",
-  "https://flowerwallvancouver.com/cdn/shop/files/white-flower-wall_800x.jpg?v=1750060307",
-  "https://flowerwallvancouver.com/cdn/shop/files/preview-img-big-1_800x.jpg?v=1745233128",
-];
-
-function App() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
-      {/* Top bar */}
+      {/* Top Bar */}
       <div className="w-full bg-rose-200/70 text-zinc-800 text-sm">
         <div className="mx-auto max-w-6xl px-4 py-2 flex items-center justify-between">
           <span>✉︎ info@flowerwallvancouver.com</span>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:underline">
-              Instagram
-            </a>
-            <a href="#" className="hover:underline">
-              TikTok
-            </a>
-            <a href="#" className="hover:underline">
-              Pinterest
-            </a>
+            <a href="#" className="hover:underline">Instagram</a>
+            <a href="#" className="hover:underline">TikTok</a>
+            <a href="#" className="hover:underline">Pinterest</a>
           </div>
         </div>
       </div>
@@ -33,27 +25,14 @@ function App() {
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           <div className="font-serif text-2xl tracking-tight">
-            FLOWERWALL{" "}
-            <span className="font-sans text-sm align-top text-rose-500">
-              Vancouver
-            </span>
+            FLOWERWALL <span className="font-sans text-sm align-top text-rose-500">Vancouver</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-700">
-            <a href="#packages" className="hover:text-zinc-950">
-              Packages
-            </a>
-            <a href="#usecases" className="hover:text-zinc-950">
-              Use Cases
-            </a>
-            <a href="#portfolio" className="hover:text-zinc-950">
-              Portfolio
-            </a>
-            <a href="#how" className="hover:text-zinc-950">
-              How It Works
-            </a>
-            <a href="#areas" className="hover:text-zinc-950">
-              Service Areas
-            </a>
+            <a href="#packages" className="hover:text-zinc-950">Packages</a>
+            <a href="#usecases" className="hover:text-zinc-950">Use Cases</a>
+            <a href="#portfolio" className="hover:text-zinc-950">Portfolio</a>
+            <a href="#how" className="hover:text-zinc-950">How It Works</a>
+            <a href="#areas" className="hover:text-zinc-950">Service Areas</a>
           </nav>
           <a
             href="#quote"
@@ -67,8 +46,8 @@ function App() {
       {/* Hero */}
       <section className="relative">
         <img
-          src={HERO}
-          alt="Bride and groom in front of flower wall"
+          src="https://flowerwallvancouver.com/cdn/shop/files/banner_20.jpg?v=1747916929"
+          alt="flower wall hero"
           className="h-[52vh] w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -76,8 +55,7 @@ function App() {
           <div className="mx-auto max-w-6xl px-4 pb-10">
             <div className="max-w-2xl rounded-2xl bg-white/90 p-6 shadow">
               <h1 className="text-3xl md:text-4xl font-serif leading-tight">
-                Flower Wall Rentals in Vancouver — installed on time, every
-                time.
+                Flower Wall Rentals in Vancouver — installed on time, every time.
               </h1>
               <p className="mt-2 text-zinc-700">
                 Pick a look, pick a date, and get a price in 30 seconds.
@@ -104,7 +82,7 @@ function App() {
         </div>
       </section>
 
-      {/* Trust row */}
+      {/* Trust Row */}
       <section className="border-b">
         <div className="mx-auto max-w-6xl px-4 py-4 grid grid-cols-2 md:grid-cols-4 items-center gap-4 text-sm">
           <div className="flex items-center gap-2">
@@ -118,21 +96,20 @@ function App() {
       </section>
 
       {/* Packages */}
-      <section id="packages" className="mx-auto max-w-6xl px-4 py-12">
+      <section id="packages" className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl md:text-3xl font-serif">Packages</h2>
           <a href="#quote" className="text-rose-700 hover:underline">
             Hold Your Date for $50 →
           </a>
         </div>
-
         <p className="mt-2 text-zinc-700">
-          Transparent pricing with delivery &amp; setup. Customize with neon
-          signs, balloons, pedestals, and uplights.
+          Transparent pricing with delivery &amp; setup. Customize with neon signs,
+          balloons, pedestals, and uplights.
         </p>
 
-        {/* 1 col mobile • 2 col md • 4 col xl */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+        {/* IMPORTANT: wrapper has id="packages-grid" */}
+        <div id="packages-grid" className="mt-4 grid gap-4">
           {[
             {
               name: "Mid-Week Mini",
@@ -157,9 +134,9 @@ function App() {
           ].map((p, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-zinc-200 p-5 shadow-sm hover:shadow-md transition-shadow bg-white"
+              className="rounded-2xl border p-5 shadow-sm hover:shadow-md transition"
             >
-              <div className="text-xs font-semibold uppercase tracking-wide text-rose-700">
+              <div className="text-sm uppercase tracking-wide text-rose-700">
                 {p.name}
               </div>
               <div className="mt-1 text-2xl font-semibold">{p.price}</div>
@@ -170,7 +147,7 @@ function App() {
               </ul>
               <a
                 href="#quote"
-                className="mt-4 inline-block rounded-xl bg-rose-600 px-4 py-2 text-sm font-medium text-white hover:bg-rose-700"
+                className="mt-4 inline-block rounded-xl bg-rose-600 px-4 py-2 text-white hover:bg-rose-700"
               >
                 Select
               </a>
@@ -184,7 +161,7 @@ function App() {
         </div>
       </section>
 
-      {/* Use cases */}
+      {/* Use Cases */}
       <section id="usecases" className="bg-rose-50/40 border-y">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl md:text-3xl font-serif">Popular Setups</h2>
@@ -192,7 +169,7 @@ function App() {
             {[
               { title: "Weddings", img: GALLERY[0] },
               { title: "Corporate", img: GALLERY[1] },
-              { title: "Birthdays & Showers", img: GALLERY[2] },
+              { title: "Birthdays", img: GALLERY[2] },
               { title: "Hotels & Lobbies", img: GALLERY[3] },
             ].map((c, i) => (
               <a
@@ -203,12 +180,12 @@ function App() {
                 <img
                   src={c.img}
                   alt={c.title}
-                  className="h-40 w-full object-cover group-hover:scale-105 transition"
+                  className="h-32 w-full object-cover group-hover:scale-105 transition"
                 />
-                <div className="p-4">
+                <div className="p-3">
                   <div className="font-medium">{c.title}</div>
                   <div className="text-sm text-zinc-600">
-                    See looks &amp; pricing →
+                    See looks &amp; pricing →Q
                   </div>
                 </div>
               </a>
@@ -217,12 +194,12 @@ function App() {
         </div>
       </section>
 
-      {/* Instant quote */}
+      {/* Instant Quote */}
       <section id="quote" className="mx-auto max-w-6xl px-4 py-12">
         <div className="rounded-2xl border bg-gradient-to-br from-rose-50 to-white p-6 shadow-sm">
           <h3 className="text-xl md:text-2xl font-serif">Instant Quote</h3>
           <p className="text-sm text-zinc-700 mt-1">
-            Date &amp; location → wall &amp; size → add-ons → price + $50 deposit.
+            Date &amp; Location → Wall &amp; Size → Add-ons → Price + $50 deposit
           </p>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
@@ -272,14 +249,14 @@ function App() {
             <img
               key={i}
               src={src}
-              alt={`Flower wall ${i + 1}`}
+              alt={`flower wall ${i + 1}`}
               className="aspect-square w-full rounded-xl object-cover"
             />
           ))}
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How It Works */}
       <section id="how" className="bg-zinc-50 border-y">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl md:text-3xl font-serif">How It Works</h2>
@@ -316,13 +293,13 @@ function App() {
         </div>
       </section>
 
-      {/* Footer / service areas */}
+      {/* Service Areas & Footer */}
       <footer id="areas" className="mx-auto max-w-6xl px-4 py-12">
         <div className="rounded-2xl bg-rose-50 p-6">
           <div className="font-medium">Service Areas</div>
           <p className="text-sm text-zinc-700 mt-1">
-            Vancouver • Burnaby • Richmond • Surrey • Coquitlam • North
-            Vancouver • West Vancouver • Langley
+            Vancouver • Burnaby • Richmond • Surrey • Coquitlam • North Vancouver •
+            West Vancouver • Langley
           </p>
         </div>
 
@@ -330,8 +307,7 @@ function App() {
           <div>
             <div className="font-semibold">Flowerwall Vancouver</div>
             <p className="mt-1">
-              Beautiful backdrops for events of all sizes. Fully installed, on
-              time.
+              Beautiful backdrops for events of all sizes. Fully installed, on time.
             </p>
           </div>
           <div>
@@ -349,12 +325,9 @@ function App() {
         </div>
 
         <div className="mt-6 text-xs text-zinc-500">
-          © {new Date().getFullYear()} Flowerwall Vancouver — All rights
-          reserved.
+          © {new Date().getFullYear()} Flowerwall Vancouver — All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
-
-export default App;
