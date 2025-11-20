@@ -88,7 +88,7 @@ export default function App() {
           </nav>
           <a
             href="#quote"
-            className="inline-flex items-center rounded-2xl bg-rose-600 px-4 py-2 text-white shadow-lg hover:shadow-xl hover:bg-rose-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
+            className="inline-flex items-center rounded-2xl bg-rose-600 px-4 py-2 text-white font-bold shadow-lg hover:shadow-xl hover:bg-rose-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
           >
             Get Instant Quote
           </a>
@@ -115,13 +115,13 @@ export default function App() {
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
                   href="#quote"
-                  className="group/btn rounded-2xl bg-white px-5 py-2.5 text-rose-600 border-2 border-rose-600 hover:bg-rose-600 hover:text-white font-medium transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                  className="group/btn rounded-2xl bg-white px-5 py-2.5 text-rose-600 border-2 border-rose-600 hover:bg-rose-600 hover:text-white font-bold transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
                   <span className="inline-block group-hover/btn:scale-110 transition-transform">Get Instant Quote</span>
                 </a>
                 <a
                   href="#packages"
-                  className="rounded-2xl border-2 border-rose-600 px-5 py-2.5 text-rose-600 hover:bg-rose-50 font-medium transition-all duration-300 hover:border-rose-700"
+                  className="rounded-2xl border-2 border-rose-600 px-5 py-2.5 text-rose-700 hover:bg-rose-50 font-bold transition-all duration-300 hover:border-rose-700"
                 >
                   See Packages
                 </a>
@@ -176,7 +176,7 @@ export default function App() {
             <div
               key={i}
               onMouseEnter={() => setActivePackage(i)}
-              className={`relative rounded-2xl border-2 p-6 shadow-lg transition-all duration-300 cursor-pointer ${
+              className={`relative rounded-2xl border-2 p-6 shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-full ${
                 activePackage === i
                   ? "border-rose-600 shadow-2xl transform scale-105 -translate-y-2 bg-gradient-to-br from-white to-rose-50/30"
                   : p.popular
@@ -189,13 +189,15 @@ export default function App() {
                   MOST POPULAR
                 </div>
               )}
+              
               <div className="text-xs uppercase tracking-wide text-rose-600 font-bold">
                 {p.name}
               </div>
-              <div className="mt-2 text-3xl font-bold text-zinc-900 transition-all duration-300">
+              <div className="mt-2 text-3xl font-bold text-zinc-900">
                 {p.price}
               </div>
-              <ul className="mt-5 space-y-3 text-sm text-zinc-700">
+              
+              <ul className="mt-5 space-y-3 text-sm text-zinc-700 mb-5 flex-grow">
                 {p.features.map((f, idx) => (
                   <li key={idx} className="flex items-center gap-2 group/item">
                     <svg className="w-5 h-5 text-rose-600 flex-shrink-0 group-hover/item:scale-125 transition-transform" fill="currentColor" viewBox="0 0 20 20">
@@ -205,11 +207,12 @@ export default function App() {
                   </li>
                 ))}
               </ul>
+              
               <a
                 href="#quote"
-                className={`mt-6 block text-center rounded-2xl px-5 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl ${
+                className={`block text-center rounded-2xl px-5 py-3 font-bold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl mt-auto ${
                   activePackage === i
-                    ? `bg-gradient-to-r ${p.color} text-white`
+                    ? `bg-gradient-to-r ${p.color} text-white shadow-lg`
                     : "bg-rose-600 text-white hover:bg-rose-700"
                 }`}
               >
