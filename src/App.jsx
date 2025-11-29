@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -12,6 +12,7 @@ export default function App() {
     "https://flowerwallvancouver.com/cdn/shop/files/preview-img-big-1_800x.jpg?v=1745233128",
   ];
 
+  // same info as before
   const packages = [
     {
       name: "Pop-up Photo Ops",
@@ -50,8 +51,8 @@ export default function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -201,7 +202,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Packages (updated to match image) */}
+      {/* Packages – style like screenshot, info unchanged */}
       <section id="packages" className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -209,59 +210,65 @@ export default function App() {
               Packages
             </h2>
             <p className="mt-1 text-zinc-700 text-sm">
-              Curated event bundles with wall, signage, and hosting
+              Transparent pricing with delivery &amp; setup included
             </p>
           </div>
           <a
             href="#quote"
-            className="text-rose-700 hover:text-rose-800 hover:gap-2 text-sm hidden md:flex items-center gap-1 transition-all group"
+            className="text-rose-700 hover:text-rose-800 text-sm hidden md:flex items-center gap-1 transition-all group"
           >
-            Hold Your Date for $50
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            Hold Your Date for $50 →
           </a>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {packages.map((p, i) => (
-            <div
-              key={i}
-              className="flex flex-col rounded-3xl border border-emerald-900/70 bg-[#fdf7f0] shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* Header strip like mockup */}
-              <div className="bg-[#f3e8dd] border-b border-emerald-900/40 px-6 py-5">
-                <h3 className="font-serif text-xl text-emerald-900">
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {packages.map((p, i) => {
+            const isFeatured = i === 1; // middle card slightly highlighted
+            return (
+              <div
+                key={i}
+                className={`relative flex flex-col rounded-[28px] border px-7 pt-6 pb-7 shadow-sm transition-all duration-300 bg-white
+                ${
+                  isFeatured
+                    ? "border-rose-500 shadow-md"
+                    : "border-zinc-200 hover:border-rose-300 hover:shadow-md"
+                }`}
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-600">
                   {p.name}
-                </h3>
-                <p className="mt-1 text-sm text-emerald-900/90 font-medium">
-                  {p.price}
-                </p>
-              </div>
+                </div>
 
-              {/* Features */}
-              <div className="px-6 py-6">
-                <ul className="space-y-3 text-sm text-emerald-950">
+                <div className="mt-2 text-xl md:text-2xl font-bold text-zinc-900">
+                  {p.price}
+                </div>
+
+                <ul className="mt-4 space-y-2 text-sm text-zinc-700 mb-6">
                   {p.features.map((f, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-900" />
+                      <svg
+                        className="w-4 h-4 mt-0.5 text-rose-500 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
+
+                <button className="mt-auto w-full rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                  Select Package
+                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-8 text-sm text-zinc-700 bg-gradient-to-r from-zinc-50 via-rose-50/30 to-zinc-50 p-5 rounded-2xl border border-zinc-200 hover:border-rose-300 transition-all duration-300 hover:shadow-md">
